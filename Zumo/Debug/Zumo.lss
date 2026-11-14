@@ -1,0 +1,332 @@
+
+Zumo.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  0000018d  00000221  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         000000ec  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  00000221  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  00000250  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000030  00000000  00000000  0000025e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000ba2  00000000  00000000  0000028e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000086f  00000000  00000000  00000e30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002f6  00000000  00000000  0000169f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000044  00000000  00000000  00001998  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000027d  00000000  00000000  000019dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000007f  00000000  00000000  00001c59  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000020  00000000  00000000  00001cd8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000017e  0000017e  00000212  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001cf8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.UART_init 00000012  00000164  00000164  000001f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.UART_transmit 00000008  00000176  00000176  0000020a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.main    00000062  000000ec  000000ec  00000180  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .data.latestCommand 00000001  00800100  0000018c  00000220  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .text.__dummy_fini 00000002  00000186  00000186  0000021a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__dummy_funcs_on_exit 00000002  00000188  00000188  0000021c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.__dummy_simulator_exit 00000002  0000018a  0000018a  0000021e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.exit    00000016  0000014e  0000014e  000001e2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text._Exit   00000004  00000182  00000182  00000216  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
+   4:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+   8:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+   c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  10:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  14:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  18:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  1c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  20:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  24:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  28:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  2c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  30:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  34:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  38:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  3c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  40:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  44:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  48:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  4c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  50:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  54:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  58:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  5c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  60:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  64:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  68:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  6c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  70:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  74:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  78:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  7c:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  80:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  84:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+  88:	0c 94 bf 00 	jmp	0x17e	; 0x17e <__bad_interrupt>
+
+0000008c <.dinit>:
+  8c:	01 00       	.word	0x0001	; ????
+  8e:	01 01       	movw	r0, r2
+  90:	00 01       	movw	r0, r0
+  92:	8c 00       	.word	0x008c	; ????
+
+00000094 <__ctors_end>:
+  94:	11 24       	eor	r1, r1
+  96:	1f be       	out	0x3f, r1	; 63
+  98:	cf ef       	ldi	r28, 0xFF	; 255
+  9a:	d0 e1       	ldi	r29, 0x10	; 16
+  9c:	de bf       	out	0x3e, r29	; 62
+  9e:	cd bf       	out	0x3d, r28	; 61
+
+000000a0 <__do_copy_data>:
+  a0:	ec e8       	ldi	r30, 0x8C	; 140
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	40 e0       	ldi	r20, 0x00	; 0
+  a6:	19 c0       	rjmp	.+50     	; 0xda <__do_clear_bss+0x8>
+  a8:	b7 91       	elpm	r27, Z+
+  aa:	a7 91       	elpm	r26, Z+
+  ac:	37 91       	elpm	r19, Z+
+  ae:	27 91       	elpm	r18, Z+
+  b0:	07 91       	elpm	r16, Z+
+  b2:	07 fd       	sbrc	r16, 7
+  b4:	0e c0       	rjmp	.+28     	; 0xd2 <__do_clear_bss>
+  b6:	97 91       	elpm	r25, Z+
+  b8:	87 91       	elpm	r24, Z+
+  ba:	ef 01       	movw	r28, r30
+  bc:	f9 2f       	mov	r31, r25
+  be:	e8 2f       	mov	r30, r24
+  c0:	0b bf       	out	0x3b, r16	; 59
+  c2:	07 90       	elpm	r0, Z+
+  c4:	0d 92       	st	X+, r0
+  c6:	a2 17       	cp	r26, r18
+  c8:	b3 07       	cpc	r27, r19
+  ca:	d9 f7       	brne	.-10     	; 0xc2 <__do_copy_data+0x22>
+  cc:	fe 01       	movw	r30, r28
+  ce:	1b be       	out	0x3b, r1	; 59
+  d0:	04 c0       	rjmp	.+8      	; 0xda <__do_clear_bss+0x8>
+
+000000d2 <__do_clear_bss>:
+  d2:	1d 92       	st	X+, r1
+  d4:	a2 17       	cp	r26, r18
+  d6:	b3 07       	cpc	r27, r19
+  d8:	e1 f7       	brne	.-8      	; 0xd2 <__do_clear_bss>
+  da:	e3 39       	cpi	r30, 0x93	; 147
+  dc:	f4 07       	cpc	r31, r20
+  de:	21 f7       	brne	.-56     	; 0xa8 <__do_copy_data+0x8>
+  e0:	0e 94 76 00 	call	0xec	; 0xec <_etext>
+  e4:	0c 94 a7 00 	jmp	0x14e	; 0x14e <exit>
+
+000000e8 <_exit>:
+  e8:	f8 94       	cli
+
+000000ea <__stop_program>:
+  ea:	ff cf       	rjmp	.-2      	; 0xea <__stop_program>
+
+Disassembly of section .text:
+
+0000017e <__bad_interrupt>:
+ 17e:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.UART_init:
+
+00000164 <UART_init>:
+volatile char latestCommand = 'S';
+
+// Initialize UART for Bluetooth transmission via HC-05 at 9600 baud
+// (Using UBRR = 47 for 7.3728MHz crystal as specified in Lab 5/6)
+void UART_init(unsigned int ubrr) {
+    UBRR0H = (unsigned char)(ubrr >> 8);
+ 164:	90 93 90 00 	sts	0x0090, r25	; 0x800090 <__TEXT_REGION_LENGTH__+0x7e0090>
+    UBRR0L = (unsigned char)ubrr;
+ 168:	89 b9       	out	0x09, r24	; 9
+    UCSR0B = (1 << TXEN0);                  // Enable transmitter
+ 16a:	88 e0       	ldi	r24, 0x08	; 8
+ 16c:	8a b9       	out	0x0a, r24	; 10
+    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // 8-bit data, 1 stop bit
+ 16e:	86 e0       	ldi	r24, 0x06	; 6
+ 170:	80 93 95 00 	sts	0x0095, r24	; 0x800095 <__TEXT_REGION_LENGTH__+0x7e0095>
+ 174:	08 95       	ret
+
+Disassembly of section .text.UART_transmit:
+
+00000176 <UART_transmit>:
+}
+
+void UART_transmit(unsigned char data) {
+    while (!(UCSR0A & (1 << UDRE0)));
+ 176:	5d 9b       	sbis	0x0b, 5	; 11
+ 178:	fe cf       	rjmp	.-4      	; 0x176 <UART_transmit>
+    UDR0 = data;
+ 17a:	8c b9       	out	0x0c, r24	; 12
+ 17c:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000000ec <main>:
+}
+
+int main(void) {
+    // Initialize UART at 9600 baud (7.3MHz crystal setting)
+    UART_init(47);
+  ec:	8f e2       	ldi	r24, 0x2F	; 47
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	0e 94 b2 00 	call	0x164	; 0x164 <UART_init>
+
+    // --- Configure Port B Joystick Pins as Inputs with Internal Pull-ups ---
+    JOYSTICK_DDR  &= ~((1 << RIGHT_BIT) | (1 << DOWN_BIT) | (1 << LEFT_BIT) | (1 << UP_BIT) | (1 << CENTER_BIT));
+  f4:	87 b3       	in	r24, 0x17	; 23
+  f6:	80 7e       	andi	r24, 0xE0	; 224
+  f8:	87 bb       	out	0x17, r24	; 23
+    JOYSTICK_PORT |=  ((1 << RIGHT_BIT) | (1 << DOWN_BIT) | (1 << LEFT_BIT) | (1 << UP_BIT) | (1 << CENTER_BIT));
+  fa:	88 b3       	in	r24, 0x18	; 24
+  fc:	8f 61       	ori	r24, 0x1F	; 31
+  fe:	88 bb       	out	0x18, r24	; 24
+
+    // Enable Global Interrupts (for UART / general system stability)
+    sei();
+ 100:	78 94       	sei
+
+    char lastTransmitted = '\0';
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+
+    while (1) {
+        char currentInput = 'S'; // Default to stop
+
+        // Read active-low buttons from Port B
+        if (!(JOYSTICK_PIN_PORT & (1 << UP_BIT))) {
+ 104:	b3 9b       	sbis	0x16, 3	; 22
+ 106:	09 c0       	rjmp	.+18     	; 0x11a <main+0x2e>
+            currentInput = 'F';      // Up -> Forward
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << DOWN_BIT))) {
+ 108:	b1 9b       	sbis	0x16, 1	; 22
+ 10a:	09 c0       	rjmp	.+18     	; 0x11e <main+0x32>
+            currentInput = 'B';      // Down -> Backward
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << LEFT_BIT))) {
+ 10c:	b2 9b       	sbis	0x16, 2	; 22
+ 10e:	09 c0       	rjmp	.+18     	; 0x122 <main+0x36>
+            currentInput = 'L';      // Left -> Turn Left
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << RIGHT_BIT))) {
+ 110:	b0 9b       	sbis	0x16, 0	; 22
+ 112:	09 c0       	rjmp	.+18     	; 0x126 <main+0x3a>
+            currentInput = 'R';      // Right -> Turn Right
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << CENTER_BIT))) {
+ 114:	86 b3       	in	r24, 0x16	; 22
+    sei();
+
+    char lastTransmitted = '\0';
+
+    while (1) {
+        char currentInput = 'S'; // Default to stop
+ 116:	83 e5       	ldi	r24, 0x53	; 83
+ 118:	07 c0       	rjmp	.+14     	; 0x128 <main+0x3c>
+
+        // Read active-low buttons from Port B
+        if (!(JOYSTICK_PIN_PORT & (1 << UP_BIT))) {
+            currentInput = 'F';      // Up -> Forward
+ 11a:	86 e4       	ldi	r24, 0x46	; 70
+ 11c:	05 c0       	rjmp	.+10     	; 0x128 <main+0x3c>
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << DOWN_BIT))) {
+            currentInput = 'B';      // Down -> Backward
+ 11e:	82 e4       	ldi	r24, 0x42	; 66
+ 120:	03 c0       	rjmp	.+6      	; 0x128 <main+0x3c>
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << LEFT_BIT))) {
+            currentInput = 'L';      // Left -> Turn Left
+ 122:	8c e4       	ldi	r24, 0x4C	; 76
+ 124:	01 c0       	rjmp	.+2      	; 0x128 <main+0x3c>
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << RIGHT_BIT))) {
+            currentInput = 'R';      // Right -> Turn Right
+ 126:	82 e5       	ldi	r24, 0x52	; 82
+        } 
+        else if (!(JOYSTICK_PIN_PORT & (1 << CENTER_BIT))) {
+            currentInput = 'S';      // Center Press -> Stop
+        }
+
+        latestCommand = currentInput;
+ 128:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+
+        // Stream over Bluetooth whenever the command changes
+        if (latestCommand != lastTransmitted) {
+ 12c:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 130:	98 17       	cp	r25, r24
+ 132:	31 f0       	breq	.+12     	; 0x140 <main+0x54>
+            UART_transmit(latestCommand);
+ 134:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 138:	0e 94 bb 00 	call	0x176	; 0x176 <UART_transmit>
+            lastTransmitted = latestCommand;
+ 13c:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 140:	eb e4       	ldi	r30, 0x4B	; 75
+ 142:	fd e1       	ldi	r31, 0x1D	; 29
+ 144:	31 97       	sbiw	r30, 0x01	; 1
+ 146:	f1 f7       	brne	.-4      	; 0x144 <main+0x58>
+ 148:	00 c0       	rjmp	.+0      	; 0x14a <main+0x5e>
+ 14a:	00 00       	nop
+ 14c:	db cf       	rjmp	.-74     	; 0x104 <main+0x18>
+
+Disassembly of section .text.__dummy_fini:
+
+00000186 <_fini>:
+ 186:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000188 <__funcs_on_exit>:
+ 188:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+0000018a <__simulator_exit>:
+ 18a:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+0000014e <exit>:
+ 14e:	ec 01       	movw	r28, r24
+ 150:	0e 94 c4 00 	call	0x188	; 0x188 <__funcs_on_exit>
+ 154:	0e 94 c3 00 	call	0x186	; 0x186 <_fini>
+ 158:	ce 01       	movw	r24, r28
+ 15a:	0e 94 c5 00 	call	0x18a	; 0x18a <__simulator_exit>
+ 15e:	ce 01       	movw	r24, r28
+ 160:	0e 94 c1 00 	call	0x182	; 0x182 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000182 <_Exit>:
+ 182:	0e 94 74 00 	call	0xe8	; 0xe8 <_exit>
