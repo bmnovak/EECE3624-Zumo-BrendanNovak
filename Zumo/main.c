@@ -1,9 +1,3 @@
-/*
- * ReadyAVR_Master_Joystick.c
- * Master board code utilizing ReadyAVR Port B joystick layout
- * PB0: Right, PB1: Down, PB2: Left, PB3: Up, PB4: Center Press
- */
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -21,8 +15,7 @@
 
 volatile char latestCommand = 'S';
 
-// Initialize UART for Bluetooth transmission via HC-05 at 9600 baud
-// (Using UBRR = 47 for 7.3728MHz crystal as specified in Lab 5/6)
+// (Using UBRR = 47 for 7.3728MHz copying Lab 5/6)
 void UART_init(unsigned int ubrr) {
     UBRR0H = (unsigned char)(ubrr >> 8);
     UBRR0L = (unsigned char)ubrr;
@@ -36,14 +29,14 @@ void UART_transmit(unsigned char data) {
 }
 
 int main(void) {
-    // Initialize UART at 9600 baud (7.3MHz crystal setting)
+    // 9600 baud
     UART_init(47);
 
-    // --- Configure Port B Joystick Pins as Inputs with Internal Pull-ups ---
+    // Internal Pull-up resistors
     JOYSTICK_DDR  &= ~((1 << RIGHT_BIT) | (1 << DOWN_BIT) | (1 << LEFT_BIT) | (1 << UP_BIT) | (1 << CENTER_BIT));
     JOYSTICK_PORT |=  ((1 << RIGHT_BIT) | (1 << DOWN_BIT) | (1 << LEFT_BIT) | (1 << UP_BIT) | (1 << CENTER_BIT));
 
-    // Enable Global Interrupts (for UART / general system stability)
+    // Enable interrupts for stability
     sei();
 
     char lastTransmitted = '\0';
