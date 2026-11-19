@@ -4,8 +4,8 @@
 #define LED 13
 
 // Tuned parameters
-#define QTR_THRESHOLD      1500 // microseconds
-#define PROXIMITY_THRESHOLD 250 // Adjust this threshold based on your Sharp sensor readings (higher = closer)
+#define QTR_THRESHOLD      1500 // ms
+#define PROXIMITY_THRESHOLD 250 // (higher = closer)
 
 #define REVERSE_SPEED       200 
 #define TURN_SPEED          200 
@@ -13,7 +13,6 @@
 #define REVERSE_DURATION    200 // ms
 #define TURN_DURATION       300 // ms
 
-// Sharp distance sensor is on analog pin A1
 #define DISTANCE_SENSOR_PIN A1
 
 ZumoBuzzer buzzer;
@@ -31,9 +30,6 @@ void setup()
   pinMode(DISTANCE_SENSOR_PIN, INPUT);
   Serial.begin(9600);
 
-  // 3-second startup countdown
-  //delay(3000);
-
   digitalWrite(LED, HIGH);
   for (int i = 0; i < 3; i++)
   {
@@ -50,10 +46,9 @@ void loop()
 {
   sensors.read(sensor_values);
 
-  // Read the Sharp distance sensor from analog pin A1
   int opponentDistance = analogRead(DISTANCE_SENSOR_PIN);
 
-  // PRIORITY 1: Border Safety (Highest Priority)
+  // PRIORITY 1: Border Safety 
   if (sensor_values[0] > QTR_THRESHOLD)
   {
     motors.setSpeeds(-REVERSE_SPEED, -REVERSE_SPEED);
@@ -73,11 +68,8 @@ void loop()
   else
   {
     // PRIORITY 2: Proximity Warning Sound Check
-    // If an opponent is closer than your threshold, play a warning tone
     if (opponentDistance > PROXIMITY_THRESHOLD)
     {
-      // Play a short high-pitched warning beep (Note A5, duration 50ms, volume 15)
-      // Using playFrequency or playNote checks if buzzer is busy so it won't block movement
       if (!buzzer.isPlaying())
       {
         buzzer.playNote(NOTE_A(5), 50, 15);
@@ -94,7 +86,6 @@ void loop()
       }
     }
 
-    // Execute movement based on active joystick command
     switch (currentCmd)
     {
       case 'F':
